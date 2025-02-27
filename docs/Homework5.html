@@ -111,14 +111,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div id="8dad5cba" class="cell" data-execution_count="1">
+<div id="2da336e3" class="cell" data-execution_count="1">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Import the libraries</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> wbgapi <span class="im">as</span> wb</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="dc712c16" class="cell" data-execution_count="2">
+<div id="be0b1f6c" class="cell" data-execution_count="2">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define the indicators to download</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>indicators <span class="op">=</span> {</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'gdp_per_capita'</span>: <span class="st">'NY.GDP.PCAP.CD'</span>,</span>
@@ -193,57 +193,92 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <section id="exploratory-data-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="exploratory-data-analysis">Exploratory Data Analysis</h2>
-<div id="cell-histogram" class="cell" data-execution_count="3">
+<div id="cell-fig-histogram" class="cell" data-execution_count="3">
 <div class="cell-output cell-output-display">
-<div id="histogram" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="Homework5_files/figure-html/histogram-output-1.png" width="950" height="662" class="figure-img"></p>
-<figcaption>histogram</figcaption>
+<div id="fig-histogram" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Homework5_files/figure-html/fig-histogram-output-1.png" width="950" height="662" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-histogram-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: histogram
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-pairplot" class="cell" data-execution_count="4">
+<div id="cell-fig-pairplot" class="cell" data-execution_count="4">
 <div class="cell-output cell-output-display">
-<div id="pairplot" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="Homework5_files/figure-html/pairplot-output-1.png" width="710" height="709" class="figure-img"></p>
-<figcaption>pairplot</figcaption>
+<div id="fig-pairplot" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-pairplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Homework5_files/figure-html/fig-pairplot-output-1.png" width="710" height="709" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-pairplot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2: pairplot
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<div id="cell-heatmap" class="cell" data-execution_count="5">
+<div id="cell-fig-heatmap" class="cell" data-execution_count="5">
 <div class="cell-output cell-output-display">
-<div id="heatmap" class="quarto-figure quarto-figure-center anchored">
-<figure class="figure">
-<p><img src="Homework5_files/figure-html/heatmap-output-1.png" width="725" height="623" class="figure-img"></p>
-<figcaption>heatmap</figcaption>
+<div id="fig-heatmap" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="Homework5_files/figure-html/fig-heatmap-output-1.png" width="725" height="623" class="figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-heatmap-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;3: heatmap
+</figcaption>
 </figure>
 </div>
 </div>
 </div>
-<p>I picked these three indicators because I wanted to explore whether life expectancy of a country would be correlated to health expenditures, the GDP, niether or both. From this initial analysis, there is little to no correlation between life expectancy and either one of the other two variables, though there is slightly more positive correlation with health expenditure. This is visible in both <span class="citation" data-cites="heatmap">(<a href="#ref-heatmap" role="doc-biblioref"><strong>heatmap?</strong></a>)</span> and <span class="citation" data-cites="pairplot">(<a href="#ref-pairplot" role="doc-biblioref"><strong>pairplot?</strong></a>)</span>. There is a positive correlation between GDP and health expenditure, which makes sense intuitively, as a country makes more money, more of that money can be turned towards keeping people healthy rather than investing in industry or other sectors.</p>
-<div id="556a09d8" class="cell" data-execution_count="6">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate summary statistics</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>summary_stats <span class="op">=</span> df[[<span class="st">'life_expectancy'</span>, <span class="st">'health_expenditure_gdp_share'</span>, <span class="st">'gdp_per_capita'</span>]].describe()</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a table with key statistics</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>key_stats <span class="op">=</span> summary_stats.loc[[<span class="st">'mean'</span>, <span class="st">'std'</span>, <span class="st">'min'</span>, <span class="st">'25%'</span>, <span class="st">'50%'</span>, <span class="st">'75%'</span>, <span class="st">'max'</span>]]</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the table</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(key_stats)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>      life_expectancy  health_expenditure_gdp_share  gdp_per_capita
-mean        72.416519                      9.044045    20520.336828
-std          7.713322                      2.703549    30640.741594
-min         52.997000                      5.100000      250.634225
-25%         66.782000                      7.263266     2599.752468
-50%         73.514634                      8.925000     7606.237525
-75%         78.475000                     10.632500    27542.145523
-max         85.377000                     16.571152   226052.001905</code></pre>
-</div>
-</div>
+<p>I picked these three indicators because I wanted to explore whether life expectancy of a country would be correlated to health expenditures, the GDP, neither or both. From this initial analysis, there is little to no correlation between life expectancy and either one of the other two variables, though there is slightly more positive correlation with health expenditure. This is visible in both <a href="#fig-heatmap" class="quarto-xref">Figure&nbsp;3</a> and <a href="#fig-pairplot" class="quarto-xref">Figure&nbsp;2</a>. There is a positive correlation between GDP and health expenditure, which makes sense intuitively, as a country makes more money, more of that money can be turned towards keeping people healthy rather than investing in industry or other sectors.</p>
+<p>Here are some summary stats of the columns I worked with:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 24%">
+<col style="width: 43%">
+<col style="width: 23%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>life_expectancy</th>
+<th>health_expenditure_gdp_share</th>
+<th>gdp_per_capita</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>mean</td>
+<td>72.416519</td>
+<td>9.044045</td>
+<td>20520.336828</td>
+</tr>
+<tr class="even">
+<td>std</td>
+<td>7.713322</td>
+<td>2.703549</td>
+<td>30640.741594</td>
+</tr>
+<tr class="odd">
+<td>min</td>
+<td>52.997000</td>
+<td>5.100000</td>
+<td>250.634225</td>
+</tr>
+<tr class="even">
+<td>max</td>
+<td>85.377000</td>
+<td>16.571152</td>
+<td>226052.001905</td>
+</tr>
+</tbody>
+</table>
 </section>
 
 </main>
