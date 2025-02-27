@@ -67,7 +67,7 @@ df.to_csv('wdi.csv', index=False)
 ## Exploratory Data Analysis
 
 ```{python}
-#| label: histogram 
+#| label: fig-histogram 
 #| echo: false
 #| fig-cap: "histogram"
 df[['life_expectancy', 'health_expenditure_gdp_share', 'gdp_per_capita']].hist(bins=30, figsize=(10, 7))
@@ -78,7 +78,7 @@ plt.show()
 ```
 
 ```{python}
-#| label: pairplot 
+#| label: fig-pairplot 
 #| echo: false
 #| fig-cap: "pairplot"
 sns.pairplot(df[['life_expectancy', 'health_expenditure_gdp_share', 'gdp_per_capita']])
@@ -88,7 +88,7 @@ plt.show()
 ```
 
 ```{python}
-#| label: heatmap 
+#| label: fig-heatmap 
 #| echo: false
 #| fig-cap: "heatmap"
 corr_matrix = df[['life_expectancy', 'health_expenditure_gdp_share', 'gdp_per_capita']].corr()
@@ -97,16 +97,22 @@ plt.title("Correlation Heatmap of Selected Indicators")
 plt.show()
 ```
 
-I picked these three indicators because I wanted to explore whether life expectancy of a country would be correlated to health expenditures, the GDP, niether or both. From this initial analysis, there is little to no correlation between life expectancy and either one of the other two variables, though there is slightly more positive correlation with health expenditure. This is visible in both @heatmap and @pairplot. There is a positive correlation between GDP and health expenditure, which makes sense intuitively, as a country makes more money, more of that money can be turned towards keeping people healthy rather than investing in industry or other sectors.
+I picked these three indicators because I wanted to explore whether life expectancy of a country would be correlated to health expenditures, the GDP, neither or both. From this initial analysis, there is little to no correlation between life expectancy and either one of the other two variables, though there is slightly more positive correlation with health expenditure. This is visible in both @fig-heatmap and @fig-pairplot. There is a positive correlation between GDP and health expenditure, which makes sense intuitively, as a country makes more money, more of that money can be turned towards keeping people healthy rather than investing in industry or other sectors.
 
 ```{python}
+#| echo: false
 # Calculate summary statistics
 summary_stats = df[['life_expectancy', 'health_expenditure_gdp_share', 'gdp_per_capita']].describe()
 
 # Create a table with key statistics
 key_stats = summary_stats.loc[['mean', 'std', 'min', '25%', '50%', '75%', 'max']]
-
-# Display the table
-print(key_stats)
 ```
 
+Here are some summary stats of the columns I worked with:
+
+|      | life_expectancy | health_expenditure_gdp_share | gdp_per_capita |
+|------|-----------------|------------------------------|----------------|
+| mean | 72.416519       | 9.044045                     | 20520.336828   |
+| std  | 7.713322        | 2.703549                     | 30640.741594   |
+| min  | 52.997000       | 5.100000                     | 250.634225     |
+| max  | 85.377000       | 16.571152                    | 226052.001905  |
