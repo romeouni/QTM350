@@ -1,0 +1,248 @@
+---
+title: "Homework 6"
+author: "Rahul Ulman"
+date: "2023-10-05"
+format: html
+engine: jupyter
+---
+
+
+## 1.
+```{python}
+#| eval: false
+
+def fibonacci(n):
+    if n <= 0:
+        return []
+    elif n == 1:
+        return [0]
+    elif n == 2:
+        return [0, 1]
+    else:
+        fib = [0, 1]
+        for i in range(2, n):
+            fib.append(fib[i-1] + fib[i-2])
+        return fib
+```
+
+Results of using /explain on this code snippet:
+
+The provided code defines a function named fibonacci that generates a list containing the Fibonacci sequence up to the n-th term. The Fibonacci sequence is a series of numbers where each number is the sum of the two preceding ones, usually starting with 0 and 1.
+
+The function begins by checking if the input n is less than or equal to 0. If this condition is met, it returns an empty list, as there are no terms to generate. If n is equal to 1, the function returns a list containing only the first term of the Fibonacci sequence, which is [0]. Similarly, if n is equal to 2, it returns the first two terms of the sequence, [0, 1].
+
+For values of n greater than 2, the function initializes a list fib with the first two terms of the Fibonacci sequence, [0, 1]. It then enters a loop that runs from 2 to n-1. In each iteration of the loop, the function calculates the next term in the sequence by summing the two most recent terms (fib[i-1] and fib[i-2]) and appends this new term to the fib list. After the loop completes, the function returns the list fib, which now contains the first n terms of the Fibonacci sequence.
+
+## 2.
+
+Code suggested by Copilot:
+
+```{zsh}
+#| eval: false
+
+cd /Users/rahululman/github/Homework6
+git init
+echo "# Homework 6" > README.md
+echo -e "*.pyc\n__pycache__/\n.env" > .gitignore
+git add README.md .gitignore Homework6.qmd
+git commit -m "Initial commit with README, .gitignore, and Homework6.qmd"
+git remote add origin {repository_url}
+git push -u origin main
+```
+
+Link to repository: https://github.com/romeouni/Homework6
+
+## 3. 
+
+Code snippet post-refactoring:
+
+```{python}
+#| eval: false
+import math
+
+def is_prime(num):
+    if num <= 1:
+        return False
+    for i in range(2, int(math.sqrt(num)) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+primes = []
+for i in range(1, 101):
+    if is_prime(i):
+        primes.append(i)
+
+print(primes)
+```
+
+## 4.
+
+CLI commands suggested by Copilot:
+
+```{zsh}
+#| eval: false
+
+mkdir data_analysis
+cd data_analysis
+echo '#!/usr/bin/env python' > analysis.py
+```
+
+## 5.
+
+Factorial code with error:
+
+```{python}
+#| eval: false
+
+def factorial(num):
+    return num * factorial(num-1)
+```
+
+Fixed with Copilot:
+
+```{python}
+#| eval: false
+
+def factorial(num):
+    if num == 1:
+        return 1
+    else:
+        return num * factorial(num - 1)
+```
+
+It correctly identified the lack of a base case.
+
+## 6.
+
+Code with comments included:
+
+```{r}
+#| eval: false
+# This function calculates the factorial of a given number n using recursion.
+# The factorial of a non-negative integer n is the product of all positive integers less than or equal to n.
+# For example, the factorial of 5 (denoted as 5!) is 5 * 4 * 3 * 2 * 1 = 120.
+# The function includes a base case to stop the recursion when n is 0, returning 1.
+# If n is greater than 0, the function recursively calls itself with n-1 and multiplies the result by n.
+
+calculate_factorial <- function(n) {
+  if (n == 0) {
+    return(1)
+  } else {
+    return(n * calculate_factorial(n - 1))
+  }
+}
+```
+
+## 7.
+
+```{python}
+#| eval: false
+
+def normalize_data(data):
+    min_val = min(data)
+    max_val = max(data)
+    return [(x - min_val) / (max_val - min_val) for x in data]
+```
+
+Copilot explanation:
+
+The selected code defines a function normalize_data that normalizes a list of numerical data. Normalization is the process of scaling individual data points to a common range, typically [0, 1].
+
+Here's a step-by-step explanation of the function:
+
+1. Calculate Minimum and Maximum Values:
+
+- min_val = min(data): Finds the minimum value in the data list.
+- max_val = max(data): Finds the maximum value in the data list.
+
+2. Normalize Each Data Point:
+
+- The list comprehension [(x - min_val) / (max_val - min_val) for x in data] iterates over each element x in the data list.
+- For each element x, it calculates the normalized value using the formula (x - min_val) / (max_val - min_val).
+- This formula scales x to a value between 0 and 1 based on its position relative to the minimum and maximum values in the data list.
+
+3. Return Normalized Data:
+
+- The function returns a new list containing the normalized values.
+
+## 8.
+
+Code in R:
+
+```{r}
+#| eval: false
+
+library(tidyverse)
+
+# Create a sample dataframe with missing values
+df <- tibble(
+  A = c(1, 2, NA, 4, 5),
+  B = c(NA, 2, 3, 4, 5),
+  C = c(1, 2, 3, NA, 5),
+  D = c(1, 2, 3, 4, 5)
+)
+
+# Define the function
+count_missing_values <- function(df) {
+  sapply(df, function(col) sum(is.na(col)))
+}
+
+# Test the function
+result <- count_missing_values(df)
+print(result)
+```
+
+Translated code to python:
+
+```{python}
+#| eval: false
+
+import pandas as pd
+
+# Create a sample dataframe with missing values
+data = {
+    'A': [1, 2, None, 4, 5],
+    'B': [None, 2, 3, 4, 5],
+    'C': [1, 2, 3, None, 5],
+    'D': [1, 2, 3, 4, 5]
+}
+df = pd.DataFrame(data)
+
+# Define the function
+def count_missing_values(df):
+    return df.isna().sum()
+
+# Test the function
+result = count_missing_values(df)
+print(result)
+```
+
+## 9.
+
+Code in python:
+
+```{python}
+#| eval: false
+
+def count_vowels(s):
+    vowels = "aeiouAEIOU"
+    return sum(1 for char in s if char in vowels)
+```
+
+Code in R:
+
+```{r}
+#| eval: false
+
+count_vowels <- function(s) {
+  vowels <- c('a', 'e', 'i', 'o', 'u', 'A', 'E', 'I', 'O', 'U')
+  return(sum(strsplit(s, NULL)[[1]] %in% vowels))
+}
+```
+
+## 10.
+
+Binary code translated into text:
+
+You've completed the assignment. Congratulations!
